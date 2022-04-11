@@ -13,10 +13,10 @@ import java.util.*;
       for(int i=1; i <= num; i++)
       {
         
-        c = a + b;
+        c = a + b;  
         System.out.println(a);
-        a = b;
-        b = c;
+        a = b;  
+        b = c;   
 
 
       }

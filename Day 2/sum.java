@@ -16,7 +16,7 @@ public class Main {
     }
 
     //Efficient code
-    int sum = n * (n + 1)/2);
+    int sum = n * (n + 1)/2;
     System.out.println(sum);
 
 

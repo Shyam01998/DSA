@@ -11,7 +11,7 @@ class main{
         if(n % j == 0){
             count++;
             break;
-        }
+        }  
         if(count == 0){
             System.out.println(" prime");
         }else{

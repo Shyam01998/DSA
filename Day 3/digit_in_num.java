@@ -12,7 +12,7 @@ import java.util.*;
      {
        num = num/10;
        count++;
-       
+      
      }
       System.out.println(count);
    }
