@@ -7,8 +7,8 @@ public class Main {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
         int m = scn.nextInt();
-        ArrayList<String> res = getMazePaths(1,1,n,m);
-        System.out.println(res);
+        
+        System.out.println(getMazePaths(0,0,n-1,m-1));
 
     }
 
@@ -23,33 +23,33 @@ public class Main {
                 return base;
             }
         
-            if(sr > dr || sc > dc){
-            ArrayList<String> base = new ArrayList<>();
-            return base;
-            }
+            //  if(sr > dr || sc > dc){
+            // ArrayList<String> base = new ArrayList<>();
+            // return base;
+            // }
 
             ArrayList<String> paths = new ArrayList<>();
             //horizontal moves
-            for(int ms = 1; ms <= dr - sr; ms++){
-                ArrayList<String> hpaths = getMazePaths(sr , sc + ms,dr,dc );
-                for(String hpath : hpaths){
-                    paths.add("h" + ms + hpath);
+            for(int jump = 1; sc+jump <= dc; jump++){
+                ArrayList<String> hpaths = getMazePaths(sr , sc + jump,dr,dc );
+                for(String s : hpaths){
+                    paths.add("h" + jump + s);
                 }
             }
 
             //vertical moves
-             for(int ms = 1; ms <= dr - sr; ms++){
-                ArrayList<String> vpaths = getMazePaths(sr+ms , sc,dr,dc );
-                for(String vpath : vpaths){
-                    paths.add("v" + ms + vpath);
+             for(int jump = 1; sr+jump <= dr; jump++){
+                ArrayList<String> vpaths = getMazePaths(sr+jump , sc,dr,dc );
+                for(String s : vpaths){
+                    paths.add("v" + jump + s);
                 }
             }
 
              //diagonal moves
-             for(int ms = 1; ms <= dr - sr && ms <= dc - sc; ms++){
-                ArrayList<String> dpaths = getMazePaths(sr+ms , sc+ms,dr,dc );
-                for(String dpath : dpaths){
-                    paths.add("d" + ms + dpath);
+             for(int jump = 1; sr + jump <= dr && sc + jump <= dc ; jump++){
+                ArrayList<String> dpaths = getMazePaths(sr+jump, sc+jump,dr,dc );
+                for(String s : dpaths){
+                    paths.add("d" + jump + s);
                 }
             }
             return paths;
